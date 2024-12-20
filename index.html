@@ -1,65 +1,37 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marble Gallery</title>
-<script>
-    function addMarble() {
-        const fileInput = document.getElementById("marbleUploader");
-        const gallery = document.getElementById("marbleGallery");
-
-        if (fileInput.files.length > 0) {
-            const file = fileInput.files[0];
-            const reader = new FileReader();
-
-            reader.onload = function(event) {
-                const newMarble = document.createElement("div");
-                newMarble.style.textAlign = "center";
-
-                const img = document.createElement("img");
-                img.src = event.target.result;
-                img.alt = "Uploaded Marble";
-                img.style.width = "200px";
-                img.style.height = "auto";
-
-                const caption = document.createElement("p");
-                caption.innerText = "Uploaded Marble";
-
-                newMarble.appendChild(img);
-                newMarble.appendChild(caption);
-
-                gallery.appendChild(newMarble);
-            };
-
-            reader.readAsDataURL(file); // Read the uploaded file as a Data URL
-        } else {
-            alert("Please select a file to upload.");
-        }
+<title>Marbles Home</title>
+<style>
+    body {
+        margin:0;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+        font-family: sans-serif;
     }
-</script>
+    .cool-button {
+        font-size:2em;
+        padding:20px 40px;
+        background: #ffffffaa;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .cool-button:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 25px rgba(0,0,0,0.4);
+    }
+</style>
 </head>
-<body style="font-family:sans-serif; padding:20px;">
-    <h1>Marble Gallery</h1>
-    <div id="marbleGallery" style="display:flex; flex-wrap:wrap; gap:20px;">
-        <!-- Existing Marble Images -->
-        <div style="text-align:center;">
-            <img src="marble1.jpg" alt="#1" style="width:200px;height:auto;">
-            <p>Marble #1</p>
-        </div>
-        <div style="text-align:center;">
-            <img src="marble2.jpg" alt="#2" style="width:200px;height:auto;">
-            <p>Marble #2</p>
-        </div>
-        <div style="text-align:center;">
-            <img src="marble3.jpg" alt="#3" style="width:200px;height:auto;">
-            <p>Marble #3</p>
-        </div>
-    </div>
-
-    <!-- Upload Section -->
-    <h2>Add a New Marble</h2>
-    <input type="file" id="marbleUploader" accept="image/jpeg">
-    <button onclick="addMarble()">Upload Marble</button>
+<body>
+    <button class="cool-button" onclick="window.location.href='gallery.html'">Marbles for Sale</button>
 </body>
 </html>
